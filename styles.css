@@ -108,7 +108,7 @@ h3 {
 
 h1 {
   margin-bottom: 20px;
-  font-size: clamp(4.4rem, 10vw, 8rem);
+  font-size: clamp(7rem, 4.8vw, 4rem);
   text-transform: uppercase;
   letter-spacing: -0.035em;
 }
@@ -389,4 +389,60 @@ footer {
     flex-direction: column;
     gap: 5px;
   }
+}
+/* Photos beneath the About text */
+.about-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.about-photos a {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(14, 23, 38, 0.12);
+}
+
+.about-photos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s ease;
+}
+
+.about-photos a:hover img {
+  transform: scale(1.04);
+}
+
+.about-photos a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 560px) {
+  .about-photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-photos img {
+    transition: none;
+  }
+
+  .about-photos a:hover img {
+    transform: none;
+  }
+}
+.about-photos a {
+  aspect-ratio: 4 / 3;
+}
+
+.about-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
